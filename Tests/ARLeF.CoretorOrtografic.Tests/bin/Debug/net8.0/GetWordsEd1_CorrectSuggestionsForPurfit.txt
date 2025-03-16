@@ -1,0 +1,3 @@
+Word: purfit
+Expected suggestions: perfit, purcit
+Actual suggestions: perfit, purcit

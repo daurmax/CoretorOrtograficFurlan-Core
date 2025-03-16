@@ -1,0 +1,17 @@
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Build/CLI/Release/net8.0/ARLeF.Apps.CoretorOrtografic.CLI
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Build/CLI/Release/net8.0/ARLeF.Apps.CoretorOrtografic.CLI.deps.json
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Build/CLI/Release/net8.0/ARLeF.Apps.CoretorOrtografic.CLI.runtimeconfig.json
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Build/CLI/Release/net8.0/ARLeF.Apps.CoretorOrtografic.CLI.dll
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Build/CLI/Release/net8.0/ARLeF.Apps.CoretorOrtografic.CLI.pdb
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Apps/ARLeF.CoretorOrtografic.CLI/obj/Release/net8.0/ARLeF.CoretorOrtografic.CLI.csproj.AssemblyReference.cache
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Apps/ARLeF.CoretorOrtografic.CLI/obj/Release/net8.0/ARLeF.CoretorOrtografic.CLI.GeneratedMSBuildEditorConfig.editorconfig
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Apps/ARLeF.CoretorOrtografic.CLI/obj/Release/net8.0/ARLeF.CoretorOrtografic.CLI.AssemblyInfoInputs.cache
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Apps/ARLeF.CoretorOrtografic.CLI/obj/Release/net8.0/ARLeF.CoretorOrtografic.CLI.AssemblyInfo.cs
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Apps/ARLeF.CoretorOrtografic.CLI/obj/Release/net8.0/ARLeF.CoretorOrtografic.CLI.csproj.CoreCompileInputs.cache
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Apps/ARLeF.CoretorOrtografic.CLI/obj/Release/net8.0/ARLeF.CoretorOrtografic.CLI.sourcelink.json
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Apps/ARLeF.CoretorOrtografic.CLI/obj/Release/net8.0/ARLeF.CoretorOrtografic.CLI.csproj.CopyComplete
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Apps/ARLeF.CoretorOrtografic.CLI/obj/Release/net8.0/ARLeF.Apps.CoretorOrtografic.CLI.dll
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Apps/ARLeF.CoretorOrtografic.CLI/obj/Release/net8.0/refint/ARLeF.Apps.CoretorOrtografic.CLI.dll
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Apps/ARLeF.CoretorOrtografic.CLI/obj/Release/net8.0/ARLeF.Apps.CoretorOrtografic.CLI.pdb
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Apps/ARLeF.CoretorOrtografic.CLI/obj/Release/net8.0/ARLeF.CoretorOrtografic.CLI.genruntimeconfig.cache
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Apps/ARLeF.CoretorOrtografic.CLI/obj/Release/net8.0/ref/ARLeF.Apps.CoretorOrtografic.CLI.dll

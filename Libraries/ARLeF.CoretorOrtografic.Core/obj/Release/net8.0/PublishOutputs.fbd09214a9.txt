@@ -1,0 +1,3 @@
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Core/bin/Release/net8.0/publish/ARLeF.CoretorOrtografic.Core.dll
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Core/bin/Release/net8.0/publish/ARLeF.CoretorOrtografic.Core.deps.json
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Core/bin/Release/net8.0/publish/ARLeF.CoretorOrtografic.Core.pdb

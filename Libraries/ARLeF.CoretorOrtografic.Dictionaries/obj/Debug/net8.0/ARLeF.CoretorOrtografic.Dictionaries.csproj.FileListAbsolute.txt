@@ -1,0 +1,12 @@
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Dictionaries/bin/Debug/net8.0/ARLeF.CoretorOrtografic.Dictionaries.deps.json
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Dictionaries/bin/Debug/net8.0/ARLeF.CoretorOrtografic.Dictionaries.dll
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Dictionaries/bin/Debug/net8.0/ARLeF.CoretorOrtografic.Dictionaries.pdb
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Dictionaries/obj/Debug/net8.0/ARLeF.CoretorOrtografic.Dictionaries.GeneratedMSBuildEditorConfig.editorconfig
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Dictionaries/obj/Debug/net8.0/ARLeF.CoretorOrtografic.Dictionaries.AssemblyInfoInputs.cache
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Dictionaries/obj/Debug/net8.0/ARLeF.CoretorOrtografic.Dictionaries.AssemblyInfo.cs
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Dictionaries/obj/Debug/net8.0/ARLeF.CoretorOrtografic.Dictionaries.csproj.CoreCompileInputs.cache
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Dictionaries/obj/Debug/net8.0/ARLeF.CoretorOrtografic.Dictionaries.sourcelink.json
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Dictionaries/obj/Debug/net8.0/ARLeF.CoretorOrtografic.Dictionaries.dll
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Dictionaries/obj/Debug/net8.0/refint/ARLeF.CoretorOrtografic.Dictionaries.dll
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Dictionaries/obj/Debug/net8.0/ARLeF.CoretorOrtografic.Dictionaries.pdb
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Dictionaries/obj/Debug/net8.0/ref/ARLeF.CoretorOrtografic.Dictionaries.dll

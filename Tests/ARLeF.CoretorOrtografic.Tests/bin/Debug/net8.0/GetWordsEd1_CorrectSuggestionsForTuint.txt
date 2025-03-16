@@ -1,0 +1,3 @@
+Word: tuint
+Expected suggestions: atuint, buint, cuint, fuint, guint, luint*, muint, puint, quint*, suint, stuint, taint, tint, tudint, tufint, tuins, tuinut, tuin, zuint
+Actual suggestions: atuint, buint, cuint, fuint, guint, luint*, muint, puint, quint*, suint, stuint, taint, tint, tudint, tufint, tuins, tuinut, tuin, zuint

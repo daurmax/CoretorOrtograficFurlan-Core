@@ -1,0 +1,3 @@
+Word: cjupe
+Expected suggestions: cjape, cjepe, cjope, clupe, crupe
+Actual suggestions: cjape, cjepe, cjope, clupe, crupe

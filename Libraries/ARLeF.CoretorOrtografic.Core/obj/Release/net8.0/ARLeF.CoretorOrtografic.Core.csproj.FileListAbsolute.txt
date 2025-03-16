@@ -1,0 +1,12 @@
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Core/bin/Release/net8.0/ARLeF.CoretorOrtografic.Core.deps.json
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Core/bin/Release/net8.0/ARLeF.CoretorOrtografic.Core.dll
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Core/bin/Release/net8.0/ARLeF.CoretorOrtografic.Core.pdb
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Core/obj/Release/net8.0/ARLeF.CoretorOrtografic.Core.GeneratedMSBuildEditorConfig.editorconfig
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Core/obj/Release/net8.0/ARLeF.CoretorOrtografic.Core.AssemblyInfoInputs.cache
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Core/obj/Release/net8.0/ARLeF.CoretorOrtografic.Core.AssemblyInfo.cs
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Core/obj/Release/net8.0/ARLeF.CoretorOrtografic.Core.csproj.CoreCompileInputs.cache
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Core/obj/Release/net8.0/ARLeF.CoretorOrtografic.Core.sourcelink.json
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Core/obj/Release/net8.0/ARLeF.CoretorOrtografic.Core.dll
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Core/obj/Release/net8.0/refint/ARLeF.CoretorOrtografic.Core.dll
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Core/obj/Release/net8.0/ARLeF.CoretorOrtografic.Core.pdb
+/home/maxxxroma/Progjets/CoretorOrtograficFurlan/Source/Backend/Libraries/ARLeF.CoretorOrtografic.Core/obj/Release/net8.0/ref/ARLeF.CoretorOrtografic.Core.dll

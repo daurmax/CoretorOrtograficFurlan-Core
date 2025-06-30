@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>ARLeF.Apps.CoretorOrtografic.CLI</AssemblyName>
+    <RootNamespace>ARLeF.Apps.CoretorOrtografic.CLI</RootNamespace>
+    <PackageId>ARLeF.Apps.CoretorOrtografic.CLI</PackageId>
+    <Authors>ARLeF.Apps.CoretorOrtografic.CLI</Authors>
+    <Company>ARLeF.Apps.CoretorOrtografic.CLI</Company>
+    <Product>ARLeF.Apps.CoretorOrtografic.CLI</Product>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\..\Build\CLI\Debug</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <CustomCommands>
+      <CustomCommands>
+        <Command>
+          <type>AfterBuild</type>
+          <command></command>
+        </Command>
+      </CustomCommands>
+    </CustomCommands>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\Build\CLI\Release</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="7.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\ARLeF.CoretorOrtografic.Core\ARLeF.CoretorOrtografic.Core.csproj" />
+    <ProjectReference Include="..\..\Libraries\ARLeF.CoretorOrtografic.Dictionaries\ARLeF.CoretorOrtografic.Dictionaries.csproj" />
+    <ProjectReference Include="..\..\Libraries\ARLeF.CoretorOrtografic.Infrastructure\ARLeF.CoretorOrtografic.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

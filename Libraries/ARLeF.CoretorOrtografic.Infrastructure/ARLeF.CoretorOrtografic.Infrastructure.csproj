@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Enums\**" />
+    <EmbeddedResource Remove="Enums\**" />
+    <None Remove="Enums\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="7.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.1" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ARLeF.CoretorOrtografic.Core\ARLeF.CoretorOrtografic.Core.csproj" />
+    <ProjectReference Include="..\ARLeF.CoretorOrtografic.Dictionaries\ARLeF.CoretorOrtografic.Dictionaries.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="RadixTreeReader\" />
+    <None Remove="System.Data.SQLite" />
+  </ItemGroup>
+</Project>

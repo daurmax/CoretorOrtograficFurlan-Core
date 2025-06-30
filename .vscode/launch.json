@@ -1,0 +1,40 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "name": "Attach to COF Docker Container",
+          "type": "coreclr",
+          "request": "attach",
+          "preLaunchTask": "Rebuild and Run Docker Container",
+          "processId": "${command:pickProcess}",
+          "pipeTransport": {
+              "pipeProgram": "docker",
+              "pipeArgs": [
+                  "exec",
+                  "-i",
+                  "coretor-ortografic-furlan"
+              ],
+              "pipeCwd": "${workspaceFolder}",
+              "quoteArgs": false,
+              "debuggerPath": "/vsdbg/vsdbg"
+          },
+          "sourceFileMap": {
+              "/app": "${workspaceFolder}"
+          }
+      },
+      {
+        "name": "Launch COF Locally",
+        "type": "coreclr",
+        "request": "launch",
+        "preLaunchTask": "Build .NET API (Debug)",
+        "program": "${workspaceFolder}/Build/API/Debug/net8.0/ARLeF.CoretorOrtografic.API.dll",
+        "cwd": "${workspaceFolder}/API/ARLeF.CoretorOrtografic.API",
+        "stopAtEntry": false,
+        "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development",
+          "ASPNETCORE_URLS": "http://localhost:1077"
+        },
+        "justMyCode": true
+      }
+  ]
+}

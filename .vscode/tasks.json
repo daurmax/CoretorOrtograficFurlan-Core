@@ -1,0 +1,67 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build .NET API (Debug)",
+            "command": "dotnet build --configuration Debug",
+            "type": "shell",
+            "problemMatcher": [
+              "$msCompile"
+            ],
+            "group": {
+              "kind": "build",
+              "isDefault": true
+            }
+        },
+        {
+            "label": "Rebuild and Run Docker Container",
+            "type": "shell",
+            "command": "docker stop coretor-ortografic-furlan || true && docker rm coretor-ortografic-furlan || true && docker build -t coretor-ortografic-furlan -f Dockerfile.debug . && docker run --rm -d --name coretor-ortografic-furlan -p 1077:1077 coretor-ortografic-furlan",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            }
+        },
+        {
+            "label": "Stop Docker Container",
+            "type": "shell",
+            "command": "docker stop coretor-ortografic-furlan",
+            "problemMatcher": []
+        },
+        {
+            "label": "Setup Docker Group Permissions",
+            "type": "shell",
+            "command": "[ $(getent group docker | grep $USER) ] && echo 'User already in docker group' || (sudo groupadd docker || echo 'Docker group already exists'; sudo usermod -aG docker $USER; echo 'Please log out and log back in or run \"newgrp docker\" to apply changes.')",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            }
+        },
+        {
+            "label": "Deploy Dictionaries to AppData",
+            "type": "shell",
+            "command": "python3",
+            "args": [
+                "${workspaceFolder}/Libraries/ARLeF.CoretorOrtografic.Dictionaries/Scripts/DeployDictionaries/deploy_dictionaries_to_appdata.py"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Delete Dictionaries from AppData",
+            "type": "shell",
+            "command": "python3",
+            "args": [
+                "${workspaceFolder}/Libraries/ARLeF.CoretorOrtografic.Dictionaries/Scripts/DeployDictionaries/delete_coretorortograficfurlan_from_appdata.py"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}

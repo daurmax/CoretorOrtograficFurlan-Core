@@ -24,6 +24,17 @@ def unzip_file(zip_path, destination_folder):
     if not os.path.exists(destination_folder):
         os.makedirs(destination_folder)
 
+    # Check if the archive contents are already deployed
+    try:
+        with zipfile.ZipFile(zip_path, 'r') as archive:
+            expected_files = [os.path.join(destination_folder, name) for name in archive.namelist()]
+    except zipfile.BadZipFile:
+        expected_files = []
+
+    if expected_files and all(os.path.exists(path) for path in expected_files):
+        print(f"Files from {zip_path} already exist. Skipping extraction.")
+        return
+
     if platform.system() == 'Windows':
         # Use 7-Zip for Windows
         seven_zip_path = r"C:\Program Files\7-Zip\7z.exe"

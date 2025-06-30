@@ -22,3 +22,4 @@ Follow these rules when making changes.
 - Use English for commit messages.
 - Prefix commits with a [semantic type](https://www.conventionalcommits.org/) such as `feat`, `fix`, `docs`, `style`, `refactor`, `test`, or `chore`.
 - Include a PR description summarizing the change and the test results.
+- Use English when naming branches for pull requests.

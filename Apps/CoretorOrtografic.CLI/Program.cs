@@ -15,6 +15,21 @@ namespace CoretorOrtografic.CLI
         private static IContentReader _reader;
         private static ISpellChecker _checker;
 
+        private static void WriteColored(string text, ConsoleColor color, bool newLine = true)
+        {
+            var prev = Console.ForegroundColor;
+            Console.ForegroundColor = color;
+            if (newLine)
+            {
+                Console.WriteLine(text);
+            }
+            else
+            {
+                Console.Write(text);
+            }
+            Console.ForegroundColor = prev;
+        }
+
         public static void Main(string[] args)
         {
             _container = CoretorOrtograficCliDependencyContainer.Configure
@@ -39,22 +54,22 @@ namespace CoretorOrtografic.CLI
                     var readStrings = _reader.Read()?.Split(" ", StringSplitOptions.RemoveEmptyEntries).ToList();
                     if (readStrings is null || !readStrings.Any())
                     {
-                        Console.WriteLine(Localization.GetNoWordsProvided());
+                        WriteColored(Localization.GetNoWordsProvided(), ConsoleColor.Yellow);
                         PrintInstructions();
                     }
                     else if (readStrings.First().Equals("Q", StringComparison.OrdinalIgnoreCase) || readStrings.First().Equals("QUIT", StringComparison.OrdinalIgnoreCase))
                     {
-                        Console.WriteLine(Localization.GetClosing());
+                        WriteColored(Localization.GetClosing(), ConsoleColor.Green);
                         Environment.Exit(1);
                     }
                     else if (readStrings.Count == 1)
                     {
-                        Console.WriteLine(Localization.GetProvideCommandAndWord());
+                        WriteColored(Localization.GetProvideCommandAndWord(), ConsoleColor.Yellow);
                         PrintInstructions();
                     }
                     else if (readStrings.First().Length != 1)
                     {
-                        Console.WriteLine(Localization.GetUnknownCommand(readStrings.First()));
+                        WriteColored(Localization.GetUnknownCommand(readStrings.First()), ConsoleColor.Red);
                         PrintInstructions();
                     }
                     else
@@ -68,7 +83,7 @@ namespace CoretorOrtografic.CLI
                                 PrintSuggestedWords(readStrings.Skip(1).ToList());
                                 break;
                             default:
-                                Console.WriteLine(Localization.GetUnknownCommand(readStrings.First()));
+                                WriteColored(Localization.GetUnknownCommand(readStrings.First()), ConsoleColor.Red);
                                 PrintInstructions();
                                 break;
                         }
@@ -79,7 +94,23 @@ namespace CoretorOrtografic.CLI
 
         private static void PrintInstructions()
         {
-            Console.WriteLine(Localization.GetInstructions());
+            Console.WriteLine();
+            WriteColored("=============================================", ConsoleColor.DarkCyan);
+            WriteColored(Localization.GetInstructions(), ConsoleColor.Cyan);
+            WriteColored("=============================================", ConsoleColor.DarkCyan);
+            Console.WriteLine();
+
+            void PrintCommand(char cmd, string description)
+            {
+                WriteColored($" {cmd}", ConsoleColor.Yellow, false);
+                WriteColored($"  - {description}", ConsoleColor.White);
+            }
+
+            PrintCommand('C', Localization.GetCorrect());
+            PrintCommand('S', Localization.GetSuggestionsAre());
+            PrintCommand('Q', Localization.GetClosing());
+
+            Console.WriteLine();
         }
 
         private static void PrintWordsCorrectness(List<string> words)
@@ -90,29 +121,23 @@ namespace CoretorOrtografic.CLI
 
                 foreach (ProcessedWord processedWord in _checker.ProcessedWords)
                 {
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.Write($"{processedWord.Original}");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write($" {Localization.GetIs()} ");
+                    WriteColored(processedWord.Original, ConsoleColor.Blue, false);
+                    WriteColored($" {Localization.GetIs()} ", ConsoleColor.White, false);
                     if (processedWord.Correct)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.Write(Localization.GetCorrect());
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine(".");
+                        WriteColored(Localization.GetCorrect(), ConsoleColor.Green, false);
+                        WriteColored(".", ConsoleColor.White);
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write(Localization.GetIncorrect());
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine(".");
+                        WriteColored(Localization.GetIncorrect(), ConsoleColor.Red, false);
+                        WriteColored(".", ConsoleColor.White);
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An exception of type {ex.GetType()} occurred.");
+                WriteColored($"An exception of type {ex.GetType()} occurred.", ConsoleColor.Red);
             }
             finally
             {
@@ -129,44 +154,35 @@ namespace CoretorOrtografic.CLI
 
                 foreach (ProcessedWord processedWord in _checker.ProcessedWords)
                 {
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.Write($"{processedWord.Original}");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write($" {Localization.GetIs()} ");
+                    WriteColored(processedWord.Original, ConsoleColor.Blue, false);
+                    WriteColored($" {Localization.GetIs()} ", ConsoleColor.White, false);
                     if (processedWord.Correct)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.Write(Localization.GetCorrect());
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine(".");
+                        WriteColored(Localization.GetCorrect(), ConsoleColor.Green, false);
+                        WriteColored(".", ConsoleColor.White);
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write(Localization.GetIncorrect());
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.Write(". ");
+                        WriteColored(Localization.GetIncorrect(), ConsoleColor.Red, false);
+                        WriteColored(". ", ConsoleColor.White, false);
                         var suggestedWords = _checker.GetWordSuggestions(processedWord).Result;
                         if (suggestedWords is null || !suggestedWords.Any())
                         {
-                            Console.WriteLine(Localization.GetNoSuggestions());
+                            WriteColored(Localization.GetNoSuggestions(), ConsoleColor.Yellow);
                         }
                         else
                         {
-                            Console.Write(Localization.GetSuggestionsAre());
+                            WriteColored(Localization.GetSuggestionsAre(), ConsoleColor.White, false);
                             foreach (var suggestedWord in suggestedWords)
                             {
-                                Console.ForegroundColor = ConsoleColor.Yellow;
-                                Console.Write(suggestedWord);
+                                WriteColored(suggestedWord, ConsoleColor.Yellow, false);
                                 if (suggestedWord != suggestedWords.Last())
                                 {
-                                    Console.ForegroundColor = ConsoleColor.White;
-                                    Console.Write(", ");
+                                    WriteColored(", ", ConsoleColor.White, false);
                                 }
                                 else
                                 {
-                                    Console.ForegroundColor = ConsoleColor.White;
-                                    Console.WriteLine(".");
+                                    WriteColored(".", ConsoleColor.White);
                                 }
                             }
                         }
@@ -175,7 +191,7 @@ namespace CoretorOrtografic.CLI
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An exception of type {ex.GetType()} occurred.");
+                WriteColored($"An exception of type {ex.GetType()} occurred.", ConsoleColor.Red);
             }
             finally
             {

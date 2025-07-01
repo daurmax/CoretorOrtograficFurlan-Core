@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <PostBuildEvent>python &quot;$(MSBuildProjectDirectory)/Scripts/DeployDictionaries/deploy_dictionaries_to_appdata.py&quot;</PostBuildEvent>
+    <PostBuildEvent>dotnet run --no-build --project "$(MSBuildProjectDirectory)/../../Utilities/CoretorOrtografic.DictionaryDeployer/CoretorOrtografic.DictionaryDeployer.csproj"</PostBuildEvent>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
 </Project>

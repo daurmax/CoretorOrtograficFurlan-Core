@@ -3,7 +3,6 @@
     public enum CallerApplicationEnum
     {
         CLI,
-        Web,
-        Mobile
+        Web
     }
 }

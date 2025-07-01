@@ -5,6 +5,8 @@ using CoretorOrtografic.Core.Input;
 using CoretorOrtografic.Core.KeyValueDatabase;
 using CoretorOrtografic.Core.SpellChecker;
 using Autofac;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace CoretorOrtografic.Business
 {
@@ -21,6 +23,12 @@ namespace CoretorOrtografic.Business
 
         protected override void Load(ContainerBuilder builder)
         {
+            // Register generic ILogger<T> for DI
+            builder.RegisterGeneric(typeof(Logger<>)).As(typeof(ILogger<>)).SingleInstance();
+            builder.RegisterInstance(NullLoggerFactory.Instance.CreateLogger<FurlanSpellChecker>())
+                .As<ILogger<FurlanSpellChecker>>()
+                .SingleInstance();
+
             if (_isDevelopment)
             {
                 RegisterDevelopmentOnlyDependencies(builder);
@@ -36,10 +44,7 @@ namespace CoretorOrtografic.Business
                     RegisterCLIDependencies(builder);
                     break;
                 case CallerApplicationEnum.Web:
-                    RegisterDesktopDependencies(builder);
-                    break;
-                case CallerApplicationEnum.Mobile:
-                    RegisterMobileDependencies(builder);
+                    RegisterWebDependencies(builder);
                     break;
             }
         }
@@ -62,13 +67,9 @@ namespace CoretorOrtografic.Business
             // Add CLI only services
             builder.RegisterType<ConsoleContentReader>().As<IContentReader>();
         }
-        private void RegisterDesktopDependencies(ContainerBuilder builder)
+        private void RegisterWebDependencies(ContainerBuilder builder)
         {
-            // Add desktop only services
-        }
-        private void RegisterMobileDependencies(ContainerBuilder builder)
-        {
-            // Add mobile only services
+            // Add web only services
         }
     }
 }

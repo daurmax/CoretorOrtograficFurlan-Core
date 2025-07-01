@@ -17,7 +17,8 @@
     <Folder Include="Dictionaries\WordsDatabase\SQLite\" />
   </ItemGroup>
 
-  <Target Name="AfterBuild">
-    <Exec Command="python &quot;$(MSBuildProjectDirectory)/Scripts/DeployDictionaries/deploy_dictionaries_to_appdata.py&quot;" />
-  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>python &quot;$(MSBuildProjectDirectory)/Scripts/DeployDictionaries/deploy_dictionaries_to_appdata.py&quot;</PostBuildEvent>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
 </Project>

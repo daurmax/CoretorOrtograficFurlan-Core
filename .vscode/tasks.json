@@ -1,0 +1,86 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build .NET API (Debug)",
+      "type": "shell",
+      "command": "dotnet",
+      "args": [
+        "build",
+        "--configuration",
+        "Debug"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": { "kind": "build", "isDefault": true }
+    },
+
+    {
+      "label": "Rebuild and Run Docker Container",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoLogo",
+        "-NoProfile",
+        "-Command",
+        "docker stop coretor-ortografic-furlan 2>$null; " +
+        "docker rm   coretor-ortografic-furlan 2>$null; " +
+        "docker build -t coretor-ortografic-furlan -f Dockerfile.debug .; " +
+        "docker run --rm -d --name coretor-ortografic-furlan -p 1077:1077 coretor-ortografic-furlan"
+      ],
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true }
+    },
+
+    {
+      "label": "Stop Docker Container",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoLogo",
+        "-NoProfile",
+        "-Command",
+        "docker stop coretor-ortografic-furlan 2>$null; " +
+        "docker rm   coretor-ortografic-furlan 2>$null"
+      ],
+      "problemMatcher": []
+    },
+
+    {
+      "label": "Setup Docker Group Permissions",
+      "type": "shell",
+      "command": "pwsh",
+      "args": [
+        "-NoLogo",
+        "-NoProfile",
+        "-Command",
+        "$groupName = 'docker'; " +
+        "if (-not (Get-LocalGroup -Name $groupName -ErrorAction SilentlyContinue)) { New-LocalGroup -Name $groupName }; " +
+        "Add-LocalGroupMember -Group $groupName -Member $env:UserName -ErrorAction SilentlyContinue; " +
+        "Write-Host 'If this is the first time you were added to the docker group, please log out and back in (or run newgrp docker) to apply changes.'"
+      ],
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": false },
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true }
+    },
+
+    {
+      "label": "Deploy Dictionaries to AppData",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "${workspaceFolder}/Libraries/CoretorOrtografic.Dictionaries/Scripts/DeployDictionaries/deploy_dictionaries_to_appdata.py"
+      ],
+      "problemMatcher": []
+    },
+
+    {
+      "label": "Delete Dictionaries from AppData",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "${workspaceFolder}/Libraries/CoretorOrtografic.Dictionaries/Scripts/DeployDictionaries/delete_coretorortograficfurlan_from_appdata.py"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

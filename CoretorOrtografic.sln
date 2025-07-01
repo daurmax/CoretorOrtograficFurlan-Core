@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoretorOrtografic.DatabaseM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoretorOrtografic.API", "API\CoretorOrtografic.API\CoretorOrtografic.API.csproj", "{925743F0-1C6F-423D-A6E2-66783750519D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoretorOrtografic.DictionaryDeployer", "Utilities\CoretorOrtografic.DictionaryDeployer\CoretorOrtografic.DictionaryDeployer.csproj", "{1D728799-E171-E3FA-AB28-A588E1E627EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{925743F0-1C6F-423D-A6E2-66783750519D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{925743F0-1C6F-423D-A6E2-66783750519D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{925743F0-1C6F-423D-A6E2-66783750519D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D728799-E171-E3FA-AB28-A588E1E627EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D728799-E171-E3FA-AB28-A588E1E627EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D728799-E171-E3FA-AB28-A588E1E627EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D728799-E171-E3FA-AB28-A588E1E627EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +79,7 @@ Global
 		{368C5C52-BD76-4E39-87EE-091BC57B98E3} = {FC5515EF-1C17-47F3-8E46-C7D97D0E37A5}
 		{23F06435-E1B2-47AC-AE9D-E45F474E85F8} = {9AE0B6D1-7332-40CF-97BC-1CF1CFB5B788}
 		{925743F0-1C6F-423D-A6E2-66783750519D} = {6193E197-C3FF-4E9A-97FE-927B2283697A}
+		{1D728799-E171-E3FA-AB28-A588E1E627EB} = {9AE0B6D1-7332-40CF-97BC-1CF1CFB5B788}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C7CD579A-3C38-46ED-9B66-6AC69985CBB8}

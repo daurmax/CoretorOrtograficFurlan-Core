@@ -1,0 +1,49 @@
+# ===================
+# 1) Build Stage
+# ===================
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copy .csproj files, restore, etc.
+COPY ["CoretorOrtografic.sln", "./"]
+COPY ["Libraries/CoretorOrtografic.Core/CoretorOrtografic.Core.csproj", "Libraries/CoretorOrtografic.Core/"]
+COPY ["Libraries/CoretorOrtografic.Dictionaries/CoretorOrtografic.Dictionaries.csproj", "Libraries/CoretorOrtografic.Dictionaries/"]
+COPY ["Libraries/CoretorOrtografic.Infrastructure/CoretorOrtografic.Infrastructure.csproj", "Libraries/CoretorOrtografic.Infrastructure/"]
+COPY ["API/CoretorOrtografic.API/CoretorOrtografic.API.csproj", "API/CoretorOrtografic.API/"]
+RUN dotnet restore "API/CoretorOrtografic.API/CoretorOrtografic.API.csproj"
+
+COPY . .
+RUN dotnet publish "API/CoretorOrtografic.API/CoretorOrtografic.API.csproj" -c Debug -o /app/publish
+
+# Install p7zip, unzip dictionaries into /app/CoretorOrtograficFurlan/Dictionaries
+RUN apt-get update && apt-get install -y p7zip-full
+RUN mkdir -p /app/CoretorOrtograficFurlan/Dictionaries
+RUN 7z x Libraries/CoretorOrtografic.Dictionaries/Dictionaries/Elisions/elisions.zip \
+       -o/app/CoretorOrtograficFurlan/Dictionaries \
+    && 7z x Libraries/CoretorOrtografic.Dictionaries/Dictionaries/Errors/errors.zip \
+       -o/app/CoretorOrtograficFurlan/Dictionaries \
+    && 7z x Libraries/CoretorOrtografic.Dictionaries/Dictionaries/Frec/frequencies.zip \
+       -o/app/CoretorOrtograficFurlan/Dictionaries \
+    && 7z x Libraries/CoretorOrtografic.Dictionaries/Dictionaries/WordsDatabase/words_split.zip \
+       -o/app/CoretorOrtograficFurlan/Dictionaries \
+    && 7z x Libraries/CoretorOrtografic.Dictionaries/Dictionaries/WordsRadixTree/words_split.zip \
+       -o/app/CoretorOrtograficFurlan/Dictionaries
+
+# ===================
+# 2) Runtime Stage
+# ===================
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+EXPOSE 1077
+
+ENV ASPNETCORE_URLS=http://+:1077
+
+# Copy only the published output from build stage into /app
+COPY --from=build /app/publish /app
+# Also copy the unzipped dictionaries (in /app/...) from the build stage
+COPY --from=build /app/ /app/
+
+RUN apt-get update && apt-get install -y curl && \
+    curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l /vsdbg
+
+ENTRYPOINT ["dotnet", "CoretorOrtografic.API.dll"]

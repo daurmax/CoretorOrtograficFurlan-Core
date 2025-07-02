@@ -1,0 +1,12 @@
+{
+  "Instructions": "Comandi: C <parole> controlla la correttezza, S <parole> suggerimenti, Q esci",
+  "NoWordsProvided": "Non sono stati forniti comandi o parole.",
+  "ProvideCommandAndWord": "Fornisci un comando e almeno una parola.",
+  "Closing": "Chiusura dell'applicazione...",
+  "Is": "\u00e8",
+  "Correct": "corretta",
+  "Incorrect": "scorretta",
+  "SuggestionsAre": "I suggerimenti sono: ",
+  "NoSuggestions": "Non ci sono suggerimenti.",
+  "UnknownCommandFormat": "Comando sconosciuto '{0}'."
+}

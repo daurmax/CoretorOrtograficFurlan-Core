@@ -1,0 +1,12 @@
+{
+  "Instructions": "Commands: C <words> check correctness, S <words> get suggestions, Q quit",
+  "NoWordsProvided": "No commands or words were provided.",
+  "ProvideCommandAndWord": "Please provide a command and at least a word to check.",
+  "Closing": "Closing application...",
+  "Is": "is",
+  "Correct": "correct",
+  "Incorrect": "incorrect",
+  "SuggestionsAre": "Suggestions are: ",
+  "NoSuggestions": "There are no suggestions.",
+  "UnknownCommandFormat": "Unknown command '{0}'."
+}

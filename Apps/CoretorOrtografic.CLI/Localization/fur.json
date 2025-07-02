@@ -1,11 +1,11 @@
 {
-  "Instructions": "Comants: C <peraulis> controle la coretece, S <peraulis> sugjeriments, Q jesse",
+  "Instructions": "Comants: C <peraulis> controle la coretece, S <peraulis> sugjeriments, Q jessi",
   "NoWordsProvided": "Nissun comant o peraulis a son st\u00e2ts inser\u00eets.",
-  "ProvideCommandAndWord": "Da un comant e almanch\u00ee une perauli.",
+  "ProvideCommandAndWord": "Da un comant e almancul une peraule.",
   "Closing": "Si sta sierant l'applicazion...",
   "Is": "al \u00e8",
   "Correct": "corete",
-  "Incorrect": "sbaglade",
+  "Incorrect": "sbaliade",
   "SuggestionsAre": "I sugjeriments a son: ",
   "NoSuggestions": "Nissun sugjeriment disponibil.",
   "UnknownCommandFormat": "Comant no cognoss\u00fbt '{0}'."

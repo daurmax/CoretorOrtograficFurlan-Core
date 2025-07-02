@@ -95,9 +95,9 @@ namespace CoretorOrtografic.CLI
         private static void PrintInstructions()
         {
             Console.WriteLine();
-            WriteColored("=============================================", ConsoleColor.DarkCyan);
+            WriteColored("==============================================================================", ConsoleColor.DarkCyan);
             WriteColored(Localization.GetInstructions(), ConsoleColor.Cyan);
-            WriteColored("=============================================", ConsoleColor.DarkCyan);
+            WriteColored("==============================================================================", ConsoleColor.DarkCyan);
             Console.WriteLine();
 
             void PrintCommand(char cmd, string description)

@@ -5,11 +5,16 @@ namespace CoretorOrtografic.Dictionaries.Constants
 {
     public static class DictionaryFilePaths
     {
+#if RELEASE_CODEX
+        private static readonly string CoretorOrtograficFolderPath =
+            Path.Combine(Path.GetTempPath(), "CoretorOrtograficFurlan", "Dictionaries");
+#else
         private static readonly string AppDataFolderPath =
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
         private static readonly string CoretorOrtograficFolderPath =
             Path.Combine(AppDataFolderPath, "CoretorOrtograficFurlan", "Dictionaries");
+#endif
 
         public static readonly string SQLITE_ELISIONS_DATABASE_FILE_PATH = Path.Combine(CoretorOrtograficFolderPath, "elisions.sqlite");
         public static readonly string SQLITE_ERRORS_DATABASE_FILE_PATH = Path.Combine(CoretorOrtograficFolderPath, "errors.sqlite");

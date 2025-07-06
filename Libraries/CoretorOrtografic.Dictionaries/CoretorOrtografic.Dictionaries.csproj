@@ -4,6 +4,10 @@
     <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Codex|AnyCPU' ">
+    <DefineConstants>$(DefineConstants);RELEASE_CODEX</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="Enums\" />
     <None Remove="Scripts\ToTextFiles\" />
@@ -18,7 +22,7 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <PostBuildEvent>dotnet run --no-build --project "$(MSBuildProjectDirectory)/../../Utilities/CoretorOrtografic.DictionaryDeployer/CoretorOrtografic.DictionaryDeployer.csproj"</PostBuildEvent>
+    <PostBuildEvent>dotnet run --no-build --configuration $(Configuration) --project "$(MSBuildProjectDirectory)/../../Utilities/CoretorOrtografic.DictionaryDeployer/CoretorOrtografic.DictionaryDeployer.csproj"</PostBuildEvent>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
 </Project>

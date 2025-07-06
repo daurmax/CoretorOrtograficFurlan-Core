@@ -13,8 +13,12 @@ namespace CoretorOrtografic.DictionaryDeployer
     public class Program
     {
         private static string GetAppDataPath() =>
+#if RELEASE_CODEX
+            Path.Combine(Path.GetTempPath(), "CoretorOrtograficFurlan", "Dictionaries");
+#else
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                          "CoretorOrtograficFurlan", "Dictionaries");
+#endif
 
         public static void Main(string[] args)
         {

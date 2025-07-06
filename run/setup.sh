@@ -9,4 +9,5 @@ export PATH="/usr/share/dotnet:$PATH"
 
 dotnet restore
 
-dotnet build -c Release
+dotnet build -c Release-Codex
+dotnet test -c Release-Codex

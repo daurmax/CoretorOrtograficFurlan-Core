@@ -35,6 +35,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Localization\*.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Libraries\CoretorOrtografic.Core\CoretorOrtografic.Core.csproj" />
     <ProjectReference Include="..\..\Libraries\CoretorOrtografic.Dictionaries\CoretorOrtografic.Dictionaries.csproj" />
     <ProjectReference Include="..\..\Libraries\CoretorOrtografic.Infrastructure\CoretorOrtografic.Infrastructure.csproj" />

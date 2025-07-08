@@ -4,7 +4,7 @@ This repository contains a .NET backend.
 Follow these rules when making changes.
 
 ## Testing
-- Run `dotnet test` from `Source/Backend` whenever backend code or libraries change.
+- Run `dotnet test` from `/` whenever backend code or libraries change.
 
 ## Coding Style
 - **C#** files use 4 spaces for indentation.

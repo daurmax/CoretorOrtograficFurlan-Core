@@ -20,6 +20,7 @@ namespace CoretorOrtografic.Core.FurlanPhoneticAlgorithm
             {
                 return targetLength;
             }
+
             if (targetLength == 0)
             {
                 return sourceLength;
@@ -29,6 +30,7 @@ namespace CoretorOrtografic.Core.FurlanPhoneticAlgorithm
             {
                 distanceMatrix[i, 0] = i;
             }
+
             for (int j = 0; j <= targetLength; j++)
             {
                 distanceMatrix[0, j] = j;
@@ -54,7 +56,7 @@ namespace CoretorOrtografic.Core.FurlanPhoneticAlgorithm
                             !(FriulianConstants.VOWELS_I.ContainsKey(sourceChar) && FriulianConstants.VOWELS_I.ContainsKey(targetChar)) &&
                             !(FriulianConstants.VOWELS_O.ContainsKey(sourceChar) && FriulianConstants.VOWELS_O.ContainsKey(targetChar)) &&
                             !(FriulianConstants.VOWELS_U.ContainsKey(sourceChar) && FriulianConstants.VOWELS_U.ContainsKey(targetChar))
-                        )
+                           )
                         {
                             cost = 1;
                         }
@@ -64,22 +66,16 @@ namespace CoretorOrtografic.Core.FurlanPhoneticAlgorithm
                         }
                     }
 
-                    distanceMatrix[i, j] = Min(
-                        distanceMatrix[i - 1, j] + 1,
-                        distanceMatrix[i, j - 1] + 1,
-                        distanceMatrix[i - 1, j - 1] + cost
-                    );
+                    distanceMatrix[i, j] = Min(distanceMatrix[i - 1, j] + 1, distanceMatrix[i, j - 1] + 1, distanceMatrix[i - 1, j - 1] + cost);
                 }
             }
 
             return distanceMatrix[sourceLength, targetLength];
         }
-
         public static List<string> SortFriulian(List<string> words)
         {
             return words.OrderBy(word => TranslateWordForSorting(word)).ToList();
         }
-
         public static (string, string) GetPhoneticHashesByWord(string word)
         {
             return GetPhoneticHashesByOriginal(PrepareOriginalWord(word));
@@ -178,7 +174,6 @@ namespace CoretorOrtografic.Core.FurlanPhoneticAlgorithm
 
             return original;
         }
-
         private static (string, string) GetPhoneticHashesByOriginal(string original)
         {
             string firstHash = original;
@@ -217,22 +212,98 @@ namespace CoretorOrtografic.Core.FurlanPhoneticAlgorithm
             secondHash = Regex.Replace(secondHash, "di(?=.)", "E"); // Replaces only if word does not end with "di"
             secondHash = Regex.Replace(secondHash, "gji", "E");
             secondHash = Regex.Replace(secondHash, "gi", "E");
-            secondHash = Regex.Replace(secondHash, "ge", "E");
-            secondHash = Regex.Replace(secondHash, "de", "E");
-            secondHash = Regex.Replace(secondHash, "te", "E");
-            secondHash = Regex.Replace(secondHash, "ce", "E");
-            secondHash = Regex.Replace(secondHash, "se", "E");
-            secondHash = Regex.Replace(secondHash, "ze", "E");
-            secondHash = Regex.Replace(secondHash, "je", "E");
-            secondHash = Regex.Replace(secondHash, "ai", "E");
-            secondHash = Regex.Replace(secondHash, "ei", "E");
-            secondHash = Regex.Replace(secondHash, "oi", "E");
-            secondHash = Regex.Replace(secondHash, "ui", "E");
-            secondHash = Regex.Replace(secondHash, "y", "E");
+            secondHash = Regex.Replace(secondHash, "gj", "E");
+            secondHash = Regex.Replace(secondHash, "g", "E");
+
+            secondHash = Regex.Replace(secondHash, "ts", "E");
+            secondHash = Regex.Replace(secondHash, "s", "E");
+            secondHash = Regex.Replace(secondHash, "zi", "E");
+            secondHash = Regex.Replace(secondHash, "z", "E");
+
+            firstHash = Regex.Replace(firstHash, "j", "i");
+            secondHash = Regex.Replace(secondHash, "j", "i");
+
+            // Remove double "i" in both hashes
+            var doubleLetterToRemove = 'i';
+
+            var firstHashResult = new StringBuilder();
+            var firstHashToCharArray = firstHash.ToCharArray();
+            for (int i = 0; i < firstHashToCharArray.Length - 1; i++)
+            {
+                if (firstHashToCharArray[i] == doubleLetterToRemove && firstHashToCharArray[i] == firstHashToCharArray[i + 1])
+                {
+                    continue;
+                }
+
+                if (i == firstHashToCharArray.Length - 2)
+                {
+                    firstHashResult.Append(firstHashToCharArray[i]);
+                    firstHashResult.Append(firstHashToCharArray[firstHashToCharArray.Length - 1]);
+                }
+                else
+                {
+                    firstHashResult.Append(firstHashToCharArray[i]);
+                }
+            }
+            firstHash = firstHashResult.ToString();
+
+            var secondHashResult = new StringBuilder();
+            var secondHashToCharArray = secondHash.ToCharArray();
+            for (int i = 0; i < secondHashToCharArray.Length - 1; i++)
+            {
+                if (secondHashToCharArray[i] == doubleLetterToRemove && secondHashToCharArray[i] == secondHashToCharArray[i + 1])
+                {
+                    continue;
+                }
+
+                if (i == secondHashToCharArray.Length - 2)
+                {
+                    secondHashResult.Append(secondHashToCharArray[i]);
+                    secondHashResult.Append(secondHashToCharArray[secondHashToCharArray.Length - 1]);
+                }
+                else
+                {
+                    secondHashResult.Append(secondHashToCharArray[i]);
+                }
+            }
+            secondHash = secondHashResult.ToString();
+
+            firstHash = Regex.Replace(firstHash, "ai", "6");
+            firstHash = Regex.Replace(firstHash, "a", "6");
+            firstHash = Regex.Replace(firstHash, "ei", "7");
+            firstHash = Regex.Replace(firstHash, "e", "7");
+            firstHash = Regex.Replace(firstHash, "ou", "8");
+            firstHash = Regex.Replace(firstHash, "oi", "8");
+            firstHash = Regex.Replace(firstHash, "o", "8");
+            firstHash = Regex.Replace(firstHash, "vu", "8");
+            firstHash = Regex.Replace(firstHash, "u", "8");
+            firstHash = Regex.Replace(firstHash, "i", "7");
+
+            secondHash = Regex.Replace(secondHash, "ai", "6");
+            secondHash = Regex.Replace(secondHash, "a", "6");
+            secondHash = Regex.Replace(secondHash, "ei", "7");
+            secondHash = Regex.Replace(secondHash, "e", "7");
+            secondHash = Regex.Replace(secondHash, "ou", "8");
+            secondHash = Regex.Replace(secondHash, "oi", "8");
+            secondHash = Regex.Replace(secondHash, "o", "8");
+            secondHash = Regex.Replace(secondHash, "vu", "8");
+            secondHash = Regex.Replace(secondHash, "u", "8");
+            secondHash = Regex.Replace(secondHash, "i", "7");
+
+            firstHash = Regex.Replace(firstHash, "^t", "H"); // Only at the beginning
+            firstHash = Regex.Replace(firstHash, "^d", "I"); // Only at the beginning
+
+            firstHash = Regex.Replace(firstHash, "t", "9");
+            firstHash = Regex.Replace(firstHash, "d", "9");
+
+            secondHash = Regex.Replace(secondHash, "^t", "H"); // Only at the beginning
+            secondHash = Regex.Replace(secondHash, "^d", "I"); // Only at the beginning
+
+            secondHash = Regex.Replace(secondHash, "t", "9");
+            secondHash = Regex.Replace(secondHash, "d", "9");
 
             return (firstHash, secondHash);
         }
-
         private static string TranslateWordForSorting(string word)
         {
             string translatedWord = string.Empty;
@@ -254,7 +325,6 @@ namespace CoretorOrtografic.Core.FurlanPhoneticAlgorithm
 
             return translatedWord.Replace("^'s", "s");
         }
-
         private static int Min(int a, int b, int c)
         {
             return Math.Min(Math.Min(a, b), c);

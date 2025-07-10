@@ -6,6 +6,16 @@ Follow these rules when making changes.
 ## Testing
 - Run `dotnet test` from `/` whenever backend code or libraries change.
 
+## Project Structure
+- `API/` contains the ASP.NET Core web API (`CoretorOrtografic.API`).
+- `Apps/` hosts command line applications, e.g. `CoretorOrtografic.CLI`.
+- `Libraries/` holds the main libraries:
+  - `CoretorOrtografic.Core` with the phonetic algorithm, data entities and abstractions.
+  - `CoretorOrtografic.Infrastructure` with the spell checker implementation and DI module.
+  - `CoretorOrtografic.Dictionaries` with constants and utilities for dictionary data.
+- `Utilities/` provides helper console tools to deploy dictionaries or migrate databases.
+- `Tests/` contains the NUnit test suite.
+
 ## Coding Style
 - **C#** files use 4 spaces for indentation.
 - Write comments and documentation in English.

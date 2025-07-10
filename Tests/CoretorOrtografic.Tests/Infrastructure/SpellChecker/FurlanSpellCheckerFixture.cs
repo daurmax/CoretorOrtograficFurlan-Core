@@ -78,5 +78,61 @@ namespace CoretorOrtografic.Tests.Infrastructure.SpellChecker
                 Assert.That(!suggestions.Any());
             }
         }
+
+        [Test]
+        public async Task CheckWord_WordWithDigits_ReturnsTrue()
+        {
+            using (var scope = Container.BeginLifetimeScope())
+            {
+                var spellChecker = scope.Resolve<ISpellChecker>();
+
+                var word = new ProcessedWord("abc123");
+                bool result = await spellChecker.CheckWord(word);
+
+                Assert.That(result);
+            }
+        }
+
+        [Test]
+        public async Task CheckWord_WordStartingWithLApostrophe_ReturnsTrue()
+        {
+            using (var scope = Container.BeginLifetimeScope())
+            {
+                var spellChecker = scope.Resolve<ISpellChecker>();
+
+                var word = new ProcessedWord("l'cjape");
+                bool result = await spellChecker.CheckWord(word);
+
+                Assert.That(result);
+            }
+        }
+
+        [Test]
+        public void ExecuteSpellCheck_ShortWordsAreMarkedCorrect()
+        {
+            using (var scope = Container.BeginLifetimeScope())
+            {
+                var spellChecker = scope.Resolve<ISpellChecker>();
+
+                spellChecker.ExecuteSpellCheck("ai cjape");
+                var firstWord = spellChecker.ProcessedWords.First() as ProcessedWord;
+
+                Assert.That(firstWord.Correct);
+            }
+        }
+
+        [Test]
+        public async Task GetWordSuggestions_HyphenatedWord_ReturnsCombinedSuggestion()
+        {
+            using (var scope = Container.BeginLifetimeScope())
+            {
+                var spellChecker = scope.Resolve<ISpellChecker>();
+
+                var word = new ProcessedWord("cjupe-cjase");
+                var suggestions = await spellChecker.GetWordSuggestions(word);
+
+                Assert.That(suggestions, Does.Contain("cjape cjase"));
+            }
+        }
     }
 }
